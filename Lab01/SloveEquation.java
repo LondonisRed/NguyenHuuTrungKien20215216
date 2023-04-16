@@ -71,7 +71,7 @@ public class SloveEquation {
                 if(delta < 0){
                     System.out.print("\nThe Equation has no solution." + "\n");
                 }else if(delta == 0){
-                    x = b1*(-1)/a;
+                    x = b1*(-1)/2*a;
                     System.out.print("The equation has only solution: x = " + x + "\n");
                 }else{
                     x1 = (b1*(-1) + Math.sqrt(delta))/(2*a);
