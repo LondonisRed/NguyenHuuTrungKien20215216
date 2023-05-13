@@ -9,6 +9,7 @@ public class Cart {
 
 				itemordered[qtyOrdered] = disc;
 				qtyOrdered++;
+				System.out.println("DVD added successfully.");
 			}
 			else {
 
@@ -38,5 +39,38 @@ public class Cart {
 				sumcost = sumcost + itemordered[i].cost;
 			}
 			return sumcost;
+		}
+
+		public void addDigitalVideoDisc(DigitalVideoDisc [] dvdlist){
+			for(int i = qtyOrdered; i < dvdlist.length; i++){
+				itemordered[i] = dvdlist[i];
+				qtyOrdered++;
+				System.out.println("DVD added successfully.");
+			}
+		}
+
+		public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2){
+			if(qtyOrdered == 0){
+				itemordered[0] = dvd1;
+				itemordered[1] = dvd2;
+				qtyOrdered= qtyOrdered+2;
+				System.out.println("All DVDs Added successffuly.");
+
+			}else{
+				itemordered[qtyOrdered+1] = dvd1;
+				itemordered[qtyOrdered+2] = dvd2;
+				qtyOrdered=qtyOrdered+2; 
+				System.out.println("All DVDs Added successffuly.");
+			}
+		}
+
+		public void printCart(){
+			if(qtyOrdered > 0){
+				System.out.println("Your Cart: ");
+				for(int i = 0; i < qtyOrdered; i++){
+					System.out.print((i+1) + ". Title: " + itemordered[i].getTitle() + " - Category : " 
+						+ itemordered[i].getCategory() + " - Cost: " + itemordered[i].getCost());
+				}
+			}
 		}
 	}
