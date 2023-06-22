@@ -1,12 +1,17 @@
 package media;
 
-import java.util.Objects;
-
 public class Tracks  implements Playable{
 	public void play(){
 		System.out.println("Playing Track: " + this.getTitle());
 	 	System.out.println("Track's length: " + this.getLengths());
 
+	}
+	public Tracks(){
+	}
+	public Tracks (int length, String title) {
+		super();
+		this.length = length;
+		this.title = title;
 	}
    
     private String title;
@@ -26,12 +31,14 @@ public class Tracks  implements Playable{
 		this.title = title;
 	}
 
-	public boolean equals (Object o1, Objects o2){
-		if(o1 == o2){
+	
+
+	@Override
+	public boolean equals (Object obj){
+		Tracks o = (Tracks) obj;
+		if(this.length == o.length && this.title == o.title){
 			return true;
 		}
-		else{
-			return false;
-		}	
+		return false;   
 	}
 }

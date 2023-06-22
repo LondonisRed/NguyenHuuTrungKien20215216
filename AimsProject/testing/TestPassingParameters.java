@@ -4,7 +4,7 @@ import media.DigitalVideoDisc;
 
 public class TestPassingParameters {
     public static void  main(String[] args){
-        DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
+        /*DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
         DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
 
         swap(jungleDVD, cinderellaDVD);
@@ -24,6 +24,6 @@ public class TestPassingParameters {
     public static void changeTitle(DigitalVideoDisc dvd, String title){
         String oldTitle = dvd.getTitle();
         dvd.setTitle(title);
-        dvd = new DigitalVideoDisc(oldTitle);
+        dvd = new DigitalVideoDisc(oldTitle);*/
     }
 }
