@@ -3,10 +3,13 @@ package media;
 import java.util.*;
 public class Book extends Media{
 	
-	private List<String> authors = new ArrayList<String>();
-	public Book() {
-	}
 	
+	private List<String> authors = new ArrayList<String>();
+
+	public Book(int id, String title, String category, float cost, List<String> authors) {
+		super(id, title, category, cost);
+		this.authors = authors;
+	}
 	
 	public void addAuthors(String authorName){
 		if(authors.contains(authorName) == true){
@@ -23,4 +26,14 @@ public class Book extends Media{
 			System.out.println("Author remove successfully.");
 		}
 	}
+
+	@Override
+	public String toString() {
+		return this.getTitle() + " - " + this.getCategory() + " - " + ": " + this.getCost() + "$\n";
+	}
+
+	@Override
+	public void play(){
+		System.out.println("Cannot Play Item.");
+	}	
 }

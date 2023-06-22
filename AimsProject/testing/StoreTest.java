@@ -1,22 +1,23 @@
 package testing;
 
 import aims.Cart;
+import aims.Store;
+import aims.Srceen.StoreScreen;
 import media.DigitalVideoDisc;
 
 public class StoreTest {
     public static void main(String [] args){
-        Cart cart = new Cart();
+         Store store = new Store();
 
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King",
-		"Animation", "Roger Allers", 87, 19.95f);
-		cart.addMedia(dvd1);
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars",
-		"Science Fiction", "George Lucas", 87, 24.95f);
-		cart.addMedia(dvd2);
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
-		"Animation", 18.99f);
-		cart.addMedia(dvd3);
-
-
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc(0,"The Lion King",
+		"Animation", 19.95f, "Roger Allers", 87);
+		store.addMedia(dvd1);
+		DigitalVideoDisc dvd2 = new DigitalVideoDisc(1,"Star Wars",
+		"Science Fiction", 87f, "George Lucas", 24);
+		store.addMedia(dvd2);
+		//DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
+		//"Animation", 18.99f);
+		//cart.addMedia(dvd3);*/
+		StoreScreen storeScreen = new StoreScreen(store);
     }
 }

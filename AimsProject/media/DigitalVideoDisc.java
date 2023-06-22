@@ -1,35 +1,19 @@
 package media;
 
-public class DigitalVideoDisc extends Media implements Playable{
+public class DigitalVideoDisc extends Disc {
 	public void play() {
 		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.length);
+		System.out.println("DVD length: " + this.getLength());
 	}
 	
 	static int nbDigitalVideoDiscs = 0;
-	String director;
-	int length;
-	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		this.setTitle(getTitle());
-		this.setCategory(category);
-		this.director = director;
-		this.length = length;
-		this.setCost(cost);
-		nbDigitalVideoDiscs = nbDigitalVideoDiscs + 1;
-		this.setId(getId());
+	public DigitalVideoDisc(int id, String title, String category, float cost, String director, int length) {
+		super(id, title, category, cost, director, length);
 	}
-	public DigitalVideoDisc(String title) {
-		this.setTitle(getTitle());
-	}
-	public DigitalVideoDisc(String title, String category, float cost) {
-		this.setTitle(getTitle());
-		this.setCategory(category);
-		this.setCost(cost);
-	}
-	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		this.setTitle(getTitle());
-		this.setCategory(category);
-		this.director = director;
-		this.setCost(cost);
+
+	@Override
+	public String toString() {
+		return this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength()
+				+ ": " + this.getCost() + "$\n";
 	}
 }

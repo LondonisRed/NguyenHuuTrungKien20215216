@@ -1,12 +1,17 @@
 package media;
 
 import java.util.ArrayList;
-
-public class CompactDisc {
+public class CompactDisc extends Disc{
+    
 
     private String artist;
-    private ArrayList<Tracks> tracks = new ArrayList<Tracks>();
-
+    private ArrayList<Tracks> tracks = new ArrayList<>();
+    public CompactDisc(int id, String title, String category, float cost, String director, int length, String artist,
+			ArrayList<Tracks> tracks) {
+		super(id, title, category, cost, director, length);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
     public String getArtist() {
         return artist;
     }
@@ -44,4 +49,18 @@ public class CompactDisc {
             tracks.get(i).play();
         }
     }
+
+    @Override
+    public void play() {
+        for(int i = 0; i < tracks.size(); i++){
+            System.out.println("Playing DVD: " + tracks.get(i).getTitle());
+		    System.out.println("DVD length: " + tracks.get(i).getLengths());
+        }
+    }
+
+    @Override
+	public String toString() {
+		return this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength()
+				+ ": " + this.getCost() + "$\n";
+	}
 }

@@ -2,15 +2,21 @@ package media;
 
 import java.util.*;
 
-public abstract class Media {
-
+public abstract class Media implements Playable{
 	public static final Comparator<Media> comparebyTitleCost = new MediaComparatorByTitleCost();
 	public static final Comparator<Media> comparebyCostTitle = new MediaComparatorByCostTitle();
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
-	public Media() {
+	public Media(int id, String title, String category, float cost) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+	}
+	public Media(int id2, String title2, String category2, float cost2, String director, int length) {
 	}
 	public int getId() {
 		return id;
@@ -37,9 +43,16 @@ public abstract class Media {
 		this.cost = cost;
 	}
 
-	public boolean equals(Object o){
-		Media item = (Media) o;
-		return this.getTitle() == item.getTitle();
+	public void printItem() {
+		System.out.println("Title: " + this.getTitle());
+		System.out.println("Category: " + this.getCategory());
+		System.out.println("Id: " + this.getId());
+		System.out.println("Cost: " + this.getCost());
 	}
 
+	@Override
+	public boolean equals(Object obj){
+		Media item = (Media) obj;
+		return this.getTitle() == item.getTitle();
+	}
 }
