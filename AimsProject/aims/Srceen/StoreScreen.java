@@ -74,7 +74,7 @@ public class StoreScreen extends JFrame{
         return center;
     }
 
-    public class MediaStore extends JPanel implements ActionListener{
+    public class MediaStore extends JPanel {
     private Media media;
     public MediaStore(Media media){
         this.media = media;
@@ -87,26 +87,36 @@ public class StoreScreen extends JFrame{
         JPanel container = new JPanel();
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
         container.add(new JButton("Add to cart"));
-        if(media instanceof Playable) {
-            container.add(new JButton("Play") );    
-        }   
-        this.add(Box.createVerticalGlue()) ;
+        if (media instanceof Playable) {
+        JButton playButton = new JButton("Play");
+        playButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JDialog infoDialog = new JDialog();
+            infoDialog.setTitle("Media Information");
+            infoDialog.setSize(300, 200);
+            infoDialog.setResizable(false);
+            infoDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            JLabel titleLabel = new JLabel("Title: " + media.getTitle(), JLabel.CENTER);
+            titleLabel.setAlignmentX(CENTER_ALIGNMENT);
+            JLabel costLabel = new JLabel("Cost: " + media.getCost(), JLabel.CENTER);
+            costLabel.setAlignmentX(CENTER_ALIGNMENT);
+            JPanel panel = new JPanel();
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.add(titleLabel);
+            panel.add(costLabel);
+            infoDialog.add(panel);
+            infoDialog.setVisible(true);
+        }
+    });
+    container.add(playButton);
+}   
+        this.add(Box.createVerticalGlue());
         this.add(title);
         this.add(cost);
         this.add(Box.createVerticalGlue());
         this.add(container);
         this.setBorder(BorderFactory.createLineBorder(Color .BLACK));
-        }
-        
-        @Override
-        public void actionPerformed(ActionEvent e){
-            String s = e.getActionCommand();
-            if(s.equals("Play")){
-                new JDialog();
-            }
-            if(s.equals("Add to cart")){
-                cart.addMedia(media);
-            }
         }
     }
 }

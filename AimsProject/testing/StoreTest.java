@@ -1,6 +1,5 @@
 package testing;
 
-import aims.Cart;
 import aims.Store;
 import aims.Srceen.StoreScreen;
 import media.DigitalVideoDisc;
