@@ -1,7 +1,7 @@
 package testing;
 
 import aims.Store;
-import aims.Screen.StoreScreen;
+import aims.screen.StoreScreen;
 import media.DigitalVideoDisc;
 
 public class StoreTest {
